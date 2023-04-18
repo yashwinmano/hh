@@ -1,1 +1,42 @@
-11
+public interface IServiceInfo
+{
+    bool ValidateMemberType(string memberType);
+    double CalculateServiceCharge(Member memberObj);
+}
+
+public class ServiceInfo : IServiceInfo
+{
+    public bool ValidateMemberType(string memberType)
+    {
+        if (memberType == "Normal" || memberType == "Privileged")
+        {
+            return true;
+        }
+        else
+        {
+            throw new InvalidMemberTypeException("Invalid Member type");
+        }
+    }
+
+    public double CalculateServiceCharge(Member memberObj)
+    {
+        if (ValidateMemberType(memberObj.MemberType))
+        {
+            double serviceCharge = 0.0;
+            if (memberObj.MemberType == "Normal")
+            {
+                serviceCharge = memberObj.MembershipFees * 0.1;
+            }
+            else if (memberObj.MemberType == "Privileged")
+            {
+                serviceCharge = memberObj.MembershipFees * 0.05;
+            }
+            return serviceCharge;
+        }
+        else
+        {
+            throw new InvalidMemberTypeException("Invalid Member type");
+        }
+    }
+}
+
