@@ -1,2 +1,36 @@
-djhhqHCOnaCheck your proficiency level, badges won, points earned and how you rank among your peers! Level up your scores by participating in the events, quiz and pursuing learning courses. Wish you the best!
+public class Member {
+    private int memberId;
+    private string memberName;
+    private string memberType;
+    private double membershipFees;
+
+    public int MemberId {
+        get { return memberId; }
+        set { memberId = value; }
+    }
+
+    public string MemberName {
+        get { return memberName; }
+        set { memberName = value; }
+    }
+
+    public string MemberType {
+        get { return memberType; }
+        set { memberType = value; }
+    }
+
+    public double MembershipFees {
+        get { return membershipFees; }
+        set { membershipFees = value; }
+    }
+
+    // 4 argument constructor
+    public Member(int memberId, string memberName, string memberType, double membershipFees) {
+        this.memberId = memberId;
+        this.memberName = memberName;
+        this.memberType = memberType;
+        this.membershipFees = membershipFees;
+    }
+}
+
 
