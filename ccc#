@@ -1,0 +1,94 @@
+Trendy Spa is a leading health salon in the city with many registered members. They offer two kinds of membership - Privileged and Normal. The Spa collects service charges from its members once in 6 months which amounts to 10% of the membership fees.
+
+Privileged members are given a discount of 25% on the service charge.  There's no discount for normal members. The Members have to pay the service charge along with GST and CGST. The Manager of the spa decides to automate the above process. 
+
+Requirement 1: Calculate Service Charge
+
+The Manager wants to calculate the service charge based on the member type.
+
+Component Specification:
+
+Type(class)
+
+Private Attributes
+
+Responsibilities
+
+Member
+
+int memberId
+
+String memberName
+
+String memberType
+
+double membershipFees
+
+Include the Public Properties
+
+ Also write a 4 argument constructor in the order : memberId, memberName, memberType and membershipFees
+
+ 
+
+Component Specification: ServiceInfo Interface 
+
+Type(Interface)
+
+Methods
+
+Responsibilities
+
+ServiceInfo
+
+public  bool ValidateMemberType(String memberType)
+
+This is the method in an interface.
+
+ If the memberType is either Normal or Privileged, this method should return true.  Else it has to throw a user defined exception "InvalidMemberTypeException"with the message "Invalid Member type".
+
+ 
+
+ServiceInfo
+
+public double CalculateServiceCharge(Member memberObj)
+
+This method is the abstract method used to calculate the service charge to be collected from the Members based on the member type.
+
+ It should invoke the ValidateMemberType method.
+
+ If valid, should return the service charge. Else should  throw  an InvalidMemberTypeException
+
+ 
+
+
+Note: The service charge is 10% of the membership fees collected from the members. Privileged members will be given a discount of 25% on the service charge.  There's no discount for normal members.
+
+Component Specification: InvalidMemberTypeException - This is a user defined exception.
+
+Type(Class)
+
+Constructor
+
+Responsibilities
+
+InvalidMemberTypeException
+
+public InvalidMemberTypeException(String message)
+
+This constructor should set the message to the super class message
+
+ 
+
+The Program class contains the Main method.
+
+In the Main method,
+
+Get the Member details like the member id, name, member type and membership fees.
+Create the Member object.
+Invoke the CalculateServiceChargemethod by passing the Member object as a parameter  If this method throws an InvalidMemberTypeException, handle the exception and print the message. Else capture the service charge amount returned.
+The output should be displayed as shown in the sample output.
+Note :
+
+In the Sample Input / Output provided, the highlighted text in bold corresponds to the input given by the user and the rest of the text represents the output.
+Ensure to follow the object oriented specifications provided in the question.
+Ensure to provide the name for classes, interfaces and methods as specified in the question.
