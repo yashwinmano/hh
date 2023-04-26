@@ -1,94 +1,272 @@
-Trendy Spa is a leading health salon in the city with many registered members. They offer two kinds of membership - Privileged and Normal. The Spa collects service charges from its members once in 6 months which amounts to 10% of the membership fees.
+[19/04, 2:05 pm] Avanthika ✨: Car Topia (---RETIRED---)
 
-Privileged members are given a discount of 25% on the service charge.  There's no discount for normal members. The Members have to pay the service charge along with GST and CGST. The Manager of the spa decides to automate the above process. 
 
-Requirement 1: Calculate Service Charge
 
-The Manager wants to calculate the service charge based on the member type.
+Scenario:
 
-Component Specification:
+CarTopia is a well-established car showroom that has been operating in the city for several years. Over time, they have gained a reputation for offering a wide range of cars at competitive prices. However, the management team at CarTopia has realised that they need a software application to analyse and manipulate the booking details. They want to be able to track which car models and cubic capacities are the most popular among customers and adjust their inventory accordingly.
 
-Type(class)
-
-Private Attributes
-
-Responsibilities
-
-Member
-
-int memberId
-
-String memberName
-
-String memberType
-
-double membershipFees
-
-Include the Public Properties
-
- Also write a 4 argument constructor in the order : memberId, memberName, memberType and membershipFees
+You being their software consultant help them with the process by developing a C# application.
 
  
 
-Component Specification: ServiceInfo Interface 
+Functionalities:
 
-Type(Interface)
+In class Car, implement the below-given properties.
 
-Methods
+Data Type
 
-Responsibilities
+Properties
 
-ServiceInfo
+string
 
-public  bool ValidateMemberType(String memberType)
+BookingId
 
-This is the method in an interface.
+string
 
- If the memberType is either Normal or Privileged, this method should return true.  Else it has to throw a user defined exception "InvalidMemberTypeException"with the message "Invalid Member type".
+Name
+
+string
+
+CarModel
+
+int
+
+CubicCapacity
+
+string
+
+BookingDate
+
+
+In class Program, implement the below-given method.
+
+
+
+public static List<Car> CarList -In the code template, it is already provided.
+implement the features listed below. 
+
+
+
+Method
+
+Description
+
+public void AddCarDetails (string[ ] carDetails)
+
+This method is used to add the car details into the CarList.
+
+This method should separate the values in each string by a  comma from the input array and assign those values to the car object, then add each object to the CarList.     
+
+public List<Car> ViewBookingDetailsByCarModel(string carModel)                              
+
+This method is used to find the car booking details based on the carModel passed as an argument.    
+
+If the carModel is found in the CarList, then add those booking details to the List and return that List. else, return an empty list
+
+public List<Car> ViewBookingDetailsByCubicCapacity(int cubicCapacity)
+
+
+This method is used to find the car booking details based on the cubicCapacity passed as an argument.    
+
+If the cubicCapacity is found in the CarList, then add those booking details to the List and return that List. else, return an  empty list.
+
+
+
+
+In Program class, Main method, 
+
+1.  Get the values from the user.
+
+2.  Call the methods accordingly and display the result.
+
+          -- If the ViewBookingDetailsByCarModel method returns an empty list, then display "No cars are booked".
+
+          -- If the ViewBookingDetailsByCubicCapacity method returns an empty list, then display "No cars are booked".
+
+3.  In the Sample Input / Output provided, the highlighted text in bold corresponds to the input given by the user and the remaining text represents the output.
 
  
 
-ServiceInfo
+Note:
 
-public double CalculateServiceCharge(Member memberObj)
-
-This method is the abstract method used to calculate the service charge to be collected from the Members based on the member type.
-
- It should invoke the ValidateMemberType method.
-
- If valid, should return the service charge. Else should  throw  an InvalidMemberTypeException
-
+Keep the method and class as public.
+Please read the method rules clearly.
+Do not use Environment.Exit() to terminate the program.
+Do not change the given code template.
  
 
 
-Note: The service charge is 10% of the membership fees collected from the members. Privileged members will be given a discount of 25% on the service charge.  There's no discount for normal members.
+Sample Input and Output:
 
-Component Specification: InvalidMemberTypeException - This is a user defined exception.
+1. Add Car Details
 
-Type(Class)
+2. View Details By Car Model
 
-Constructor
+3. View Details By Cubic Capacity
 
-Responsibilities
+4. Exit
 
-InvalidMemberTypeException
+Enter the choice
 
-public InvalidMemberTypeException(String message)
+1
 
-This constructor should set the message to the super class message
+Enter the number of entries
 
- 
+3
 
-The Program class contains the Main method.
+M001,Robin,Hon Pilot,1197,25/12/2022
 
-In the Main method,
+M002,Alex,Hon Pilot,1086,10/12/2022
 
-Get the Member details like the member id, name, member type and membership fees.
-Create the Member object.
-Invoke the CalculateServiceChargemethod by passing the Member object as a parameter  If this method throws an InvalidMemberTypeException, handle the exception and print the message. Else capture the service charge amount returned.
-The output should be displayed as shown in the sample output.
-Note :
+M003,Mohammed,Hon Fit,1197,15/10/2022
 
-In the Sample Input / Output provided, the highlighted text in bold corresponds to the input given by the user and the rest of the text represents the output.
-Ensure to follow the object oriented specifications provided in the question.
-Ensure to provide the name for classes, interfaces and methods as specified in the question.
+
+
+1. Add Car Details
+
+2. View Details By Car Model
+
+3. View Details By Cubic Capacity
+
+4. Exit
+
+Enter the choice
+
+2
+
+Enter the car model
+
+Hon Pilot
+
+
+
+BookingId
+
+Name
+
+CarModel
+
+CubicCapacity
+
+BookingDate
+
+M001 
+
+Robin 
+
+Hon Pilot
+
+1197 
+
+25/12/2022
+
+M002 
+
+Alex 
+
+Hon Pilot
+
+1086 
+
+10/12/2022
+
+
+1. Add Car Details
+
+2. View Details By Car Model
+
+3. View Details By Cubic Capacity
+
+4. Exit
+
+Enter the choice
+
+2
+
+Enter the car model
+
+Ford 20
+
+No cars are booked
+
+
+1. Add Car Details
+
+2. View Details By Car Model
+
+3. View Details By Cubic Capacity
+
+4. Exit
+
+Enter the choice
+
+3
+
+Enter the cubic capacity
+
+1197
+
+
+
+BookingId
+
+Name
+
+CarModel
+
+CubicCapacity
+
+BookingDate
+
+M001 
+
+Robin 
+
+Hon Pilot
+
+1197 
+
+25/12/2022
+
+M003 
+
+Mohammed 
+
+Hon Fit
+
+1197 
+
+15/10/2022
+
+
+1. Add Car Details
+
+2. View Details By Car Model
+
+3. View Details By Cubic Capacity
+
+4. Exit
+
+Enter the choice
+
+3
+
+Enter the cubic capacity
+
+300
+
+No cars are booked
+
+
+1. Add Car Details
+
+2. View Details By Car Model
+
+3. View Details By Cubic Capacity
+
+4. Exit
+
+Enter the choice
+
+4
